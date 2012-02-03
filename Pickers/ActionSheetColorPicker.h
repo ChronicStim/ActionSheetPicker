@@ -49,6 +49,8 @@ typedef void(^ActionColorCancelBlock)(ActionSheetColorPicker *picker);
 
 - (id)initColorPickerWithTitle:(NSString *)title sortMode:(int)colorSortMode initialKey:(NSString *)key doneBlock:(ActionColorDoneBlock)doneBlock cancelBlock:(ActionColorCancelBlock)cancelBlockOrNil origin:(id)origin;
 
+-(void)displayCurrentIndexWithinPickerview;
+
 @property (nonatomic, copy) ActionColorDoneBlock onActionSheetDone;
 @property (nonatomic, copy) ActionColorCancelBlock onActionSheetCancel;
 

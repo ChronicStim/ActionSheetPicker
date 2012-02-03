@@ -64,7 +64,6 @@
     } else {
         colorObject = nil;
     }
-    NSLog(@"Returning colorObject %@ for index: %i",colorObject,index);
     return colorObject;
 }
 
@@ -133,7 +132,8 @@
         NSString *hexString = [colorDefinition objectForKey:kCrayonHex];
         NSString *colorName = [colorDefinition objectForKey:kCrayonName];
         NSString *colorKey = [colorDefinition objectForKey:kCrayonKey];
-        ColorObject *newColorObject = [[ColorObject alloc] initWithHexString:hexString forColorName:colorName forColorKey:colorKey];
+        NSInteger sortIndex = [[colorDefinition objectForKey:kCrayonSortIndex] intValue];
+        ColorObject *newColorObject = [[ColorObject alloc] initWithHexString:hexString forColorName:colorName forColorKey:colorKey withSortIndex:sortIndex];
         [newColorDictionary setObject:newColorObject forKey:colorKey];
         [newKeyList addObject:colorKey];
         [newColorObject release];
@@ -212,7 +212,7 @@
             [sortDescriptor release];
         }   break;
         case CSM_Hue:  {
-            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"hueValue" ascending:YES];
+            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortIndex" ascending:YES];
             NSArray *sortedArray = [unsortedColorObjects sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
             sortedKeyArray = [[[NSMutableArray alloc] initWithCapacity:objectCount] autorelease];
             for (ColorObject *colorObject in sortedArray) {

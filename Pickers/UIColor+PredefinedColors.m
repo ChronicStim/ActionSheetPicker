@@ -21,13 +21,13 @@
 	for (NSString *string in rawCrayons) 
 	{
         NSDictionary *crayonDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    CRAYON_SORTINDEX(string), kCrayonSortIndex,
                                     CRAYON_NAME(string), kCrayonName,
                                     CRAYON_HEX(string), kCrayonHex,
                                     CRAYON_KEY(string), kCrayonKey,
                                     CRAYON_UICOLOR(string), kCrayonUIColor,
                                     nil];
         [newCrayonArray addObject:crayonDict];
-        NSLog(@"crayonDict = %@",crayonDict);
         [crayonDict release];
 	}
     
@@ -53,7 +53,6 @@
 +(NSDictionary *)predefinedCrayonForCrayonKey:(NSString *)aKey;
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@",kCrayonKey,aKey];
-    NSLog(@"predicate = %@",predicate);
     NSArray *results = [[UIColor predefinedCrayonCollection] filteredArrayUsingPredicate:predicate];
     if ([results count]==0) {
         return nil;

@@ -63,6 +63,9 @@
 + (id)showColorPickerWithTitle:(NSString *)title sortMode:(int)colorSortMode initialKey:(NSString *)key target:(id)target sucessAction:(SEL)sucessAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
 {
     ActionSheetColorPicker *picker = [[[ActionSheetColorPicker alloc] initColorPickerWithTitle:title sortMode:colorSortMode initialKey:key target:target sucessAction:sucessAction cancelAction:cancelActionOrNil origin:origin] autorelease];
+    [picker addCustomButtonWithTitle:@"Name" value:[NSNumber numberWithInt:CSM_ColorName]];
+    [picker addCustomButtonWithTitle:@"Hue" value:[NSNumber numberWithInt:CSM_Hue]];
+    [picker setHideCancel:YES];
     [picker showActionSheetPicker];
     return picker;
 }
@@ -99,14 +102,20 @@
     stringPicker.delegate = self;
     stringPicker.dataSource = self;
     stringPicker.showsSelectionIndicator = YES;
-    NSInteger currentIndex = [self.colorCollection indexForKey:self.selectedKey usingSortMode:self.colorSortMode];
-    NSLog(@"Current Index = %i",currentIndex);
-    [stringPicker selectRow:currentIndex inComponent:0 animated:NO];
     
     //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing
     self.pickerView = stringPicker;
     
+    [self displayCurrentIndexWithinPickerview];
+    
     return stringPicker;
+}
+
+-(void)displayCurrentIndexWithinPickerview;
+{
+    NSInteger currentIndex = [self.colorCollection indexForKey:self.selectedKey usingSortMode:self.colorSortMode];
+    [(UIPickerView *)self.pickerView selectRow:currentIndex inComponent:0 animated:NO];
+
 }
 
 - (void)notifyTarget:(id)target didSucceedWithAction:(SEL)sucessAction origin:(id)origin {    
@@ -118,7 +127,7 @@
         [target performSelector:sucessAction withObject:self.selectedKey withObject:origin];
         return;
     }
-    NSLog(@"Invalid target/action ( %s / %s ) combination used for ActionSheetPicker", object_getClassName(target), (char *)sucessAction);
+//    NSLog(@"Invalid target/action ( %s / %s ) combination used for ActionSheetPicker", object_getClassName(target), (char *)sucessAction);
 }
 
 - (void)notifyTarget:(id)target didCancelWithAction:(SEL)cancelAction origin:(id)origin {
@@ -164,7 +173,6 @@
     [colorLabel setAdjustsFontSizeToFitWidth:YES];
     
     ColorObject *colorObject = [self.colorCollection colorObjectAtIndex:row withSortMode:self.colorSortMode];
-    NSLog(@"ColorObject - %@",colorObject);
     
     [colorLabel setText:[colorObject colorName]];
     [rowView addSubview:colorLabel];
@@ -178,6 +186,18 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
     return pickerView.frame.size.width - 30;
+}
+
+- (void)customButtonPressed:(id)sender {
+    UIBarButtonItem *button = (UIBarButtonItem*)sender;
+    NSInteger index = button.tag;
+    NSAssert((index >= 0 && index < self.customButtons.count), @"Bad custom button tag: %d, custom button count: %d", index, self.customButtons.count);    
+//    NSAssert([self.pickerView respondsToSelector:@selector(setDate:animated:)], @"Bad pickerView for ActionSheetDatePicker, doesn't respond to setDate:animated:");
+    NSDictionary *buttonDetails = [self.customButtons objectAtIndex:index];
+    ColorSortMode newColorSortMode = [[buttonDetails objectForKey:@"buttonValue"] intValue];
+    self.colorSortMode = newColorSortMode;
+    [self displayCurrentIndexWithinPickerview];
+
 }
 
 #pragma mark - Block setters

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#define kCrayonSortIndex @"predefinedCrayonSortIndex"
 #define kCrayonName @"predefinedCrayonName"
 #define kCrayonHex @"predefinedCrayonHexString"
 #define kCrayonKey @"predefinedCrayonKeyString"
 #define kCrayonUIColor @"predefinedCrayonUIColor"
 #define kCrayonDefaultKey @"Blue _0066FF"
 
-#define CRAYON_NAME(CRAYON)	[[CRAYON componentsSeparatedByString:@"#"] objectAtIndex:0]
+#define CRAYON_SORTINDEX(CRAYON) [[CRAYON componentsSeparatedByString:@"#"] objectAtIndex:0]
+#define CRAYON_NAME(CRAYON)	[[CRAYON componentsSeparatedByString:@"#"] objectAtIndex:1]
 #define CRAYON_HEX(CRAYON) [[CRAYON componentsSeparatedByString:@"#"] lastObject]
 #define CRAYON_UICOLOR(CRAYON) [UIColor getColor:CRAYON_HEX(CRAYON)]
 #define CRAYON_KEY(CRAYON) [NSString stringWithFormat:@"%@_%@",CRAYON_NAME(CRAYON),CRAYON_HEX(CRAYON)]

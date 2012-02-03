@@ -1,132 +1,138 @@
-Almond #EED9C4
-Antique Brass #C88A65
-Apricot #FDD5B1
-Aquamarine #71D9E2
-Asparagus #7BA05B
-Banana Mania #FBE7B2
-Beaver #926F5B
-Bittersweet #FE6F5E
-Black #000000
-Blizzard Blue #A3E3ED
-Blue #0066FF
-Blue Bell #9999CC
-Blue Green #0095B6
-Blue Violet #6456B7
-Brick Red #C62D42
-Brink Pink #FB607F
-Brown #AF593E
-Burnt Orange #FF7034
-Burnt Sienna #E97451
-Cadet Blue #A9B2C3
-Canary #FFFF99
-Caribbean Green #00CC99
-Carnation Pink #FFA6C9
-Cerise #DA3287
-Cerulean #02A4D3
-Chartreuse #FF9966
-Chestnut #B94E48
-Copper #DA8A67
-Cornflower #93CCEA
-Cotton Candy #FFB7D5
-Cranberry #DB5079
-Dandelion #FED85D
-Denim #1560BD
-Desert Sand #EDC9AF
-Eggplant #614051
-Electric Lime #CCFF00
-Fern #63B76C
-Flesh #FFCBA4
-Forest Green #5FA777
-Fuchsia #C154C1
-Fuzzy Wuzzy Brown #C45655
-Gold #E6BE8A
-Goldenrod #FCD667
-Granny Smith Apple #9DE093
-Gray #8B8680
-Green #01A368
-Green Yellow #F1E788
-Happy Ever After #6CDA37
-Hot Magenta #FF00CC
-Inch Worm #B0E313
-Indigo #4F69C6
-Jazzberry Jam #A50B5E
-Jungle Green #29AB87
-Laser Lemon #FFFF66
-Lavender #FBAED2
-Macaroni And Cheese #FFB97B
-Magenta #F653A6
-Magic Mint #AAF0D1
-Mahogany #CA3435
-Manatee #8D90A1
-Mango Tango #E77200
-Maroon #C32148
-Mauvelous #F091A9
-Melon #FEBAAD
-Midnight Blue #003366
-Mountain Meadow #1AB385
-Mulberry #C54B8C
-Navy Blue #0066CC
-Neon Carrot #FF9933
-Olive Green #B5B35C
-Orange #FF681F
-Orchid #E29CD2
-Outer Space #2D383A
-Outrageous Orange #FF6037
-Pacific Blue #009DC4
-Peach #FFCBA4
-Periwinkle #C3CDE6
-Pig Pink #FDD7E4
-Pine Green #01796F
-Pink Flamingo #FF66FF
-Plum #843179
-Prussian Blue #003366
-Purple Heart #652DC1
-Purple Mountain's Majesty #9678B6
-Purple Pizzazz #FF00CC
-Radical Red #FF355E
-Raw Sienna #D27D46
-Razzle Dazzle Rose #FF33CC
-Razzmatazz #E30B5C
-Red #ED0A3F
-Red Orange #FF3F34
-Red Violet #BB3385
-Robin's Egg Blue #00CCCC
-Royal Purple #6B3FA0
-Salmon #FF91A4
-Scarlet #FD0E35
-Screamin' Green #66FF66
-Sea Green #93DFB8
-Sepia #9E5B40
-Shadow #837050
-Shamrock #33CC99
-Shocking Pink #FF6FFF
-Silver #C9C0BB
-Sky Blue #76D7EA
-Spring Green #ECEBBD
-Sunglow #FFCC33
-Sunset Orange #FE4C40
-Tan #FA9D5A
-Tickle Me Pink #FC80A5
-Timberwolf #D9D6CF
-Torch Red #FD0E35
-Tropical Rain Forest #00755E
-Tumbleweed #DEA681
-Turquoise Blue #6CDAE7
-Ultra Green #66FF66
-Ultra Orange #FF6037
-Ultra Pink #FF6FFF
-Ultra Red #FD5B78
-Ultra Yellow #FFFF66
-Unmellow Yellow #FFFF66
-Violet (purple) #8359A3
-Violet Red #F7468A
-Vivid Tangerine #FF9980
-Vivid Violet #803790
-White #FFFFFF
-Wild Blue Yonder #7A89B8
-Wild Strawberry #FF3399
-Wild Watermelon #FD5B78
-Wisteria #C9A0DC
-Yellow #FBE870
-Yellow Green #C5E17A
-Yellow Orange #FFAE42
+0#Light Pink#FFB6C1
+1#Pink#FFC0CB
+2#Crimson#DC143C
+3#Lavender Blush#FFF0F5
+4#Pale Violetred#DB7093
+5#Hot Pink#FF69B4
+6#Deep Pink#FF1493
+7#Medium Violetred#C71585
+8#Orchid#DA70D6
+9#Thistle#D8BFD8
+10#Plum#DDA0DD
+11#Vioulet#EE82EE
+12#Fuchsia#FF00FF
+13#Dark Magenta#8B008B
+14#Purple#800080
+15#Medium Orchid#BA55D3
+16#Dark Violet#9400D3
+17#Dark Orchid#9932CC
+18#Indigo#4B0082
+19#Blue Violet#8A2BE2
+20#Medium Purple#9370DB
+21#Medium Slate Blue#7B68EE
+22#Slate Blue#6A5ACD
+23#Dark Slate Blue#483D8B
+24#Ghost White#F8F8FF
+25#Lavender#E6E6FA
+26#Blue#0000FF
+27#Medium Blue#0000CD
+28#Dark Blue#00008B
+29#Navy#000080
+30#Midnight Blue#191970
+31#Royal Blue#4169E1
+32#Cornflower Blue#6495ED
+33#Light Steel Blue#B0C4DE
+34#Light Slate Gray#778899
+35#Slate Gray#708090
+36#Dodger Blue#1E90FF
+37#Alice Blue#F0F8FF
+38#Steel Blue#4682B4
+39#Light Sky Blue#87CEFA
+40#Sky Blue#87CEEB
+41#Deep Sky Blue#00BFFF
+42#Light Blue#ADD8E6
+43#Powder Blue#B0E0E6
+44#Cadet Blue#5F9EA0
+45#Dark Turquoise#00CED1
+46#Azure#F0FFFF
+47#Light Cyan#E0FFFF
+48#Pale Turquoise#AFEEEE
+49#Aqua#00FFFF
+50#Dark Cyan#008B8B
+51#Teal#008080
+52#Dark Slate Gray#2F4F4F
+53#Medium Turquoise#48D1CC
+54#Light Sea Green#20B2AA
+55#Turquoise#40E0D0
+56#Aquamarine#7FFFD4
+57#Medium Aquamarine#66CDAA
+58#Medium Spring Green#00FA9A
+59#Mint Cream#F5FFFA
+60#Spring Green#00FF7F
+61#Medium Sea Green#3CB371
+62#Sea Green#2E8B57
+63#Honeydew#F0FFF0
+64#Dark Sea Green#8FBC8F
+65#Pale Green#98FB98
+66#Light Green#90EE90
+67#Lime Green#32CD32
+68#Lime#00FF00
+69#Forest Green#228B22
+70#Green#008000
+71#Dark Green#006400
+72#Lawn Green#7CFC00
+73#Chartreuse#7FFF00
+74#Green Yellow#ADFF2F
+75#Dark Olive Green#556B2F
+76#Yellow Green#9ACD32
+77#Olive Drab#6B8E23
+78#Ivory#FFFFF0
+79#Beige#F5F5DC
+80#Light Yellow#FFFFE0
+81#Light Goldenrod Yellow#FAFAD2
+82#Yellow#FFFF00
+83#Olive#808000
+84#Dark Khaki#BDB76B
+85#Pale Goldenrod#EEE8AA
+86#Lemon Chiffon#FFFACD
+87#Khaki#F0E68C
+88#Gold#FFD700
+89#Cornsilk#FFF8DC
+90#Goldenrod#DAA520
+91#Dark Goldenrod#B8860B
+92#Floral White#FFFAF0
+93#Old Lace#FDF5E6
+94#Wheat#F5DEB3
+95#Orange#FFA500
+96#Moccasin#FFE4B5
+97#Papaya Whip#FFEFD5
+98#Blanched Almond#FFEBCD
+99#Navajo White#FFDEAD
+100#Antique White#FAEBD7
+101#Tan#D2B48C
+102#Burlywood#DEB887
+103#Dark Orange#FF8C00
+104#Bisque#FFE4C4
+105#Linen#FAF0E6
+106#Peru#CD853F
+107#Peach Puff#FFDAB9
+108#Sandy Brown#F4A460
+109#Chocolate#D2691E
+110#Saddle Brown#8B4513
+111#Sea Shell#FFF5EE
+112#Sienna#A0522D
+113#Light Salmon#FFA07A
+114#Coral#FF7F50
+115#Orange Red#FF4500
+116#Dark Salmon#E9967A
+117#Tomato#FF6347
+118#Salmon#FA8072
+119#Misty Rose#FFE4E1
+120#Light Coral#F08080
+121#Snow#FFFAFA
+122#Rosy Brown#BC8F8F
+123#Indian Red#CD5C5C
+124#Red#FF0000
+125#Brown#A52A2A
+126#Fire Brick#B22222
+127#Dark Red#8B0000
+128#Maroon#800000
+129#White#FFFFFF
+130#White Smoke#F5F5F5
+131#Gainsboro#DCDCDC
+132#Light Grey#D3D3D3
+133#Silver#C0C0C0
+134#Dark Gray#A9A9A9
+135#Gray#808080
+136#Dim Gray#696969
+137#Black#000000

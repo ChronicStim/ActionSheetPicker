@@ -14,8 +14,9 @@
 @synthesize hueValue = _hueValue;
 @synthesize hexString = _hexString;
 @synthesize colorKeyString = _colorKeyString;
+@synthesize sortIndex = _sortIndex;
 
--(id)initWithHexString:(NSString *)aHexString forColorName:(NSString *)aColorName forColorKey:(NSString *)aColorKey;
+-(id)initWithHexString:(NSString *)aHexString forColorName:(NSString *)aColorName forColorKey:(NSString *)aColorKey withSortIndex:(NSInteger)sortIndex;
 {
     self = [super init];
     if (self) {
@@ -23,6 +24,7 @@
         self.colorName = aColorName;
         self.uiColorDefinition = [self uiColorForHexString:aHexString];
         self.colorKeyString = aColorKey;
+        self.sortIndex = [NSNumber numberWithInt:sortIndex];
     }
     return self;
 }
@@ -110,6 +112,7 @@
     [_hexString release], _hexString = nil;
     [_colorKeyString release], _colorKeyString=nil;
     [_hueValue release], _hueValue=nil;
+    [_sortIndex release], _sortIndex=nil;
     
     [super dealloc];
 }
