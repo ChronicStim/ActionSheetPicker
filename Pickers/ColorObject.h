@@ -17,12 +17,12 @@
     NSString *_colorKeyString;
     NSNumber *_sortIndex;
 }
-@property (nonatomic, retain) NSString *colorName;
-@property (nonatomic, retain) UIColor *uiColorDefinition;
-@property (nonatomic, retain) NSNumber *hueValue;
-@property (nonatomic, retain) NSString *hexString;
-@property (nonatomic, retain) NSString *colorKeyString;
-@property (nonatomic, retain) NSNumber *sortIndex;
+@property (nonatomic, strong) NSString *colorName;
+@property (nonatomic, strong) UIColor *uiColorDefinition;
+@property (nonatomic, strong) NSNumber *hueValue;
+@property (nonatomic, strong) NSString *hexString;
+@property (nonatomic, strong) NSString *colorKeyString;
+@property (nonatomic, strong) NSNumber *sortIndex;
 
 -(id)initWithHexString:(NSString *)aHexString forColorName:(NSString *)aColorName forColorKey:(NSString *)aColorKey withSortIndex:(NSInteger)sortIndex;
 -(UIColor *)uiColorForHexString:(NSString *)hexColor;

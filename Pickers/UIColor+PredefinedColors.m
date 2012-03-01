@@ -16,7 +16,7 @@
 	NSString *pathname = [[NSBundle mainBundle]  pathForResource:@"CrayonColorList" ofType:@"txt" inDirectory:@"/"];
 	NSArray *rawCrayons = [[NSString stringWithContentsOfFile:pathname encoding:NSUTF8StringEncoding error:nil] componentsSeparatedByString:@"\n"];
 
-    NSMutableArray *newCrayonArray = [[[NSMutableArray alloc] initWithCapacity:[rawCrayons count]] autorelease];
+    NSMutableArray *newCrayonArray = [[NSMutableArray alloc] initWithCapacity:[rawCrayons count]];
     
 	for (NSString *string in rawCrayons) 
 	{
@@ -28,7 +28,6 @@
                                     CRAYON_UICOLOR(string), kCrayonUIColor,
                                     nil];
         [newCrayonArray addObject:crayonDict];
-        [crayonDict release];
 	}
     
     return newCrayonArray;

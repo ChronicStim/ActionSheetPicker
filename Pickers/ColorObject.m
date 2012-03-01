@@ -94,7 +94,7 @@
         h = h + 360.0;
     }
     
-    _hueValue = [[NSNumber numberWithDouble:h] retain];
+    _hueValue = [NSNumber numberWithDouble:h];
 //    Hue := h;
 //    Saturnation := s * 100 / 255;
 //    Brightness := b * 100 / 255;
@@ -107,14 +107,13 @@
 //=========================================================== 
 - (void)dealloc
 {
-    [_colorName release], _colorName = nil;
-    [_uiColorDefinition release], _uiColorDefinition = nil;
-    [_hexString release], _hexString = nil;
-    [_colorKeyString release], _colorKeyString=nil;
-    [_hueValue release], _hueValue=nil;
-    [_sortIndex release], _sortIndex=nil;
+    _colorName = nil;
+    _uiColorDefinition = nil;
+    _hexString = nil;
+    _colorKeyString=nil;
+    _hueValue=nil;
+    _sortIndex=nil;
     
-    [super dealloc];
 }
 
 

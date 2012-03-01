@@ -33,13 +33,12 @@
 //=========================================================== 
 - (void)dealloc
 {
-    [_colorDictionary release], _colorDictionary = nil;
-    [_sortedKeysByColorName release], _sortedKeysByColorName = nil;
-    [_sortedKeysByHue release], _sortedKeysByHue = nil;
-    [_sortedKeysRandom release], _sortedKeysRandom = nil;
-    [_unsortedKeys release], _unsortedKeys = nil;
+    _colorDictionary = nil;
+    _sortedKeysByColorName = nil;
+    _sortedKeysByHue = nil;
+    _sortedKeysRandom = nil;
+    _unsortedKeys = nil;
     
-    [super dealloc];
 }
 
 -(ColorObject *)colorObjectAtIndex:(NSInteger)index withSortMode:(ColorSortMode)sortMode;
@@ -104,7 +103,6 @@
         *stop = ([masterKey isEqualToString:testKey]);
         return (*stop);
     }];
-    [masterKey release];
     if (NSNotFound == index) {
         index = -1;
     }
@@ -136,14 +134,11 @@
         ColorObject *newColorObject = [[ColorObject alloc] initWithHexString:hexString forColorName:colorName forColorKey:colorKey withSortIndex:sortIndex];
         [newColorDictionary setObject:newColorObject forKey:colorKey];
         [newKeyList addObject:colorKey];
-        [newColorObject release];
 	}
     
-    _colorDictionary = [newColorDictionary retain];
-    _unsortedKeys = [newKeyList retain];
+    _colorDictionary = newColorDictionary;
+    _unsortedKeys = newKeyList;
     
-    [newColorDictionary release];
-    [newKeyList release];
     
     [self resetSortedArrays];
     
@@ -153,15 +148,15 @@
 -(void)resetSortedArrays;
 {
     if (nil != _sortedKeysByColorName) {
-        [_sortedKeysByColorName release], _sortedKeysByColorName=nil;
+        _sortedKeysByColorName=nil;
     }
 
     if (nil != _sortedKeysByHue) {
-        [_sortedKeysByHue release], _sortedKeysByHue=nil;
+        _sortedKeysByHue=nil;
     }
     
     if (nil != _sortedKeysRandom) {
-        [_sortedKeysRandom release], _sortedKeysRandom=nil;
+        _sortedKeysRandom=nil;
     }
     
 }
@@ -172,7 +167,7 @@
         return _sortedKeysByColorName;
     }
     
-    _sortedKeysByColorName = [[self sortedColorKeysForSortMode:CSM_ColorName] retain];
+    _sortedKeysByColorName = [self sortedColorKeysForSortMode:CSM_ColorName];
     return _sortedKeysByColorName;
 }
 
@@ -182,7 +177,7 @@
         return _sortedKeysByHue;
     }
     
-    _sortedKeysByHue = [[self sortedColorKeysForSortMode:CSM_Hue] retain];
+    _sortedKeysByHue = [self sortedColorKeysForSortMode:CSM_Hue];
     return _sortedKeysByHue;
 }
 
@@ -192,7 +187,7 @@
         return _sortedKeysRandom;
     }
     
-    _sortedKeysRandom = [[self sortedColorKeysForSortMode:CSM_ColorName] retain];
+    _sortedKeysRandom = [self sortedColorKeysForSortMode:CSM_ColorName];
     return _sortedKeysRandom;
 }
 
@@ -205,20 +200,18 @@
         case CSM_ColorName:  {
             NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"colorName" ascending:YES];
             NSArray *sortedArray = [unsortedColorObjects sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-            sortedKeyArray = [[[NSMutableArray alloc] initWithCapacity:objectCount] autorelease];
+            sortedKeyArray = [[NSMutableArray alloc] initWithCapacity:objectCount];
             for (ColorObject *colorObject in sortedArray) {
                 [sortedKeyArray addObject:[colorObject colorKeyString]];
             }
-            [sortDescriptor release];
         }   break;
         case CSM_Hue:  {
             NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortIndex" ascending:YES];
             NSArray *sortedArray = [unsortedColorObjects sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-            sortedKeyArray = [[[NSMutableArray alloc] initWithCapacity:objectCount] autorelease];
+            sortedKeyArray = [[NSMutableArray alloc] initWithCapacity:objectCount];
             for (ColorObject *colorObject in sortedArray) {
                 [sortedKeyArray addObject:[colorObject colorKeyString]];
             }
-            [sortDescriptor release];
         }   break;
         case CSM_Random:  {
             sortedKeyArray = [NSMutableArray arrayWithArray:self.unsortedKeys];
