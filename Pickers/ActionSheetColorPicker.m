@@ -114,8 +114,9 @@
 -(void)displayCurrentIndexWithinPickerview;
 {
     NSInteger currentIndex = [self.colorCollection indexForKey:self.selectedKey usingSortMode:self.colorSortMode];
-    [(UIPickerView *)self.pickerView selectRow:currentIndex inComponent:0 animated:NO];
-
+    if (currentIndex >= 0) {
+        [(UIPickerView *)self.pickerView selectRow:currentIndex inComponent:0 animated:NO];
+    }
 }
 
 - (void)notifyTarget:(id)target didSucceedWithAction:(SEL)sucessAction origin:(id)origin {    
