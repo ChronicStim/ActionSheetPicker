@@ -62,7 +62,8 @@
 	range.location = 4; 
 	[[NSScanner scannerWithString:[self.hexString substringWithRange:range]] scanHexInt:&blue];	
 
-    double h, s, b;
+    double h, s;
+//    double b;
     double minRGB, maxRGB, Delta;
 
     h = 0.0;
@@ -71,7 +72,7 @@
     maxRGB = MAX(MAX(red, green), blue);
 
     Delta = (maxRGB - minRGB);
-    b = maxRGB;
+//    b = maxRGB;
     if (maxRGB != 0.0) {
         s = 255.0 * Delta / maxRGB;  
     } else {
