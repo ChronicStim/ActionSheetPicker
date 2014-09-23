@@ -100,7 +100,7 @@
         return;
     }
     else if (target && [target respondsToSelector:sucessAction]) {
-        [target performSelector:sucessAction withObject:[NSNumber numberWithInt:self.selectedIndex] withObject:origin];
+        [target performSelector:sucessAction withObject:[NSNumber numberWithInteger:self.selectedIndex] withObject:origin];
         return;
     }
     NSLog(@"Invalid target/action ( %s / %s ) combination used for ActionSheetPicker", object_getClassName(target), sel_getName(sucessAction));

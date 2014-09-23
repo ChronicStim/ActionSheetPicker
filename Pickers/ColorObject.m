@@ -24,7 +24,7 @@
         self.colorName = aColorName;
         self.uiColorDefinition = [self uiColorForHexString:aHexString];
         self.colorKeyString = aColorKey;
-        self.sortIndex = [NSNumber numberWithInt:sortIndex];
+        self.sortIndex = [NSNumber numberWithInteger:sortIndex];
     }
     return self;
 }

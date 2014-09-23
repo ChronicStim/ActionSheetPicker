@@ -195,7 +195,7 @@
 {
     NSMutableArray *sortedKeyArray;
     NSArray *unsortedColorObjects = [self.colorDictionary allValues];
-    int objectCount = [unsortedColorObjects count];
+    NSUInteger objectCount = [unsortedColorObjects count];
     switch (aColorSortMode) {
         case CSM_ColorName:  {
             NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"colorName" ascending:YES];
@@ -218,8 +218,8 @@
             srandom(time(NULL));
             for (NSUInteger i = 0; i < objectCount; ++i) {
                 // Select a random element between i and end of array to swap with.
-                int nElements = objectCount - i;
-                int n = (random() % nElements) + i;
+                NSInteger nElements = objectCount - i;
+                NSInteger n = (random() % nElements) + i;
                 [sortedKeyArray exchangeObjectAtIndex:i withObjectAtIndex:n];
             }
         }   break;
