@@ -347,7 +347,7 @@ CG_INLINE BOOL isIPhone4()
         {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            button = [[UIBarButtonItem alloc] initWithTitle:buttonTitle style:UIBarButtonItemStyleBordered
+            button = [[UIBarButtonItem alloc] initWithTitle:buttonTitle style:UIBarButtonItemStylePlain
                                                      target:self action:@selector(customButtonPressed:)];
 #pragma clang diagnostic pop
         }
