@@ -215,7 +215,7 @@
         }   break;
         case CSM_Random:  {
             sortedKeyArray = [NSMutableArray arrayWithArray:self.unsortedKeys];
-            srandom((uInt)time(NULL));
+            srandom((uint)time(NULL));
             for (NSUInteger i = 0; i < objectCount; ++i) {
                 // Select a random element between i and end of array to swap with.
                 NSInteger nElements = objectCount - i;
