@@ -143,7 +143,6 @@ CG_INLINE BOOL isIPhone4()
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [super dealloc];
 }
 
 - (UIView *)configuredPickerView
@@ -314,8 +313,8 @@ CG_INLINE BOOL isIPhone4()
     [toolBarItemlabel setFont:[UIFont boldSystemFontOfSize:16]];
     [toolBarItemlabel setBackgroundColor:[UIColor clearColor]];
     toolBarItemlabel.text = aTitle;
-    UIBarButtonItem *buttonLabel = [[[UIBarButtonItem alloc]initWithCustomView:toolBarItemlabel] autorelease];
-    [toolBarItemlabel release];
+    UIBarButtonItem *buttonLabel = [[UIBarButtonItem alloc]initWithCustomView:toolBarItemlabel];
+
     return buttonLabel;
 }
 

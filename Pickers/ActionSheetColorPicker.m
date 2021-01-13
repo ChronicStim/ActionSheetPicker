@@ -47,7 +47,7 @@
 {
     ActionSheetColorPicker * picker = [[ActionSheetColorPicker alloc] initColorPickerWithTitle:title sortMode:colorSortMode initialKey:key doneBlock:doneBlock cancelBlock:cancelBlockOrNil origin:origin];
     [picker showActionSheetPicker];
-    return [picker autorelease];
+    return picker;
 }
 
 - (id)initColorPickerWithTitle:(NSString *)title sortMode:(int)colorSortMode initialKey:(NSString *)key doneBlock:(ActionColorDoneBlock)doneBlock cancelBlock:(ActionColorCancelBlock)cancelBlockOrNil origin:(id)origin;
@@ -62,7 +62,7 @@
 
 + (id)showColorPickerWithTitle:(NSString *)title sortMode:(int)colorSortMode initialKey:(NSString *)key target:(id)target sucessAction:(SEL)sucessAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin;
 {
-    ActionSheetColorPicker *picker = [[[ActionSheetColorPicker alloc] initColorPickerWithTitle:title sortMode:colorSortMode initialKey:key target:target sucessAction:sucessAction cancelAction:cancelActionOrNil origin:origin] autorelease];
+    ActionSheetColorPicker *picker = [[ActionSheetColorPicker alloc] initColorPickerWithTitle:title sortMode:colorSortMode initialKey:key target:target sucessAction:sucessAction cancelAction:cancelActionOrNil origin:origin];
     [picker addCustomButtonWithTitle:@"Name" value:[NSNumber numberWithInt:CSM_ColorName]];
     [picker addCustomButtonWithTitle:@"Hue" value:[NSNumber numberWithInt:CSM_Hue]];
     [picker setHideCancel:YES];
@@ -84,21 +84,11 @@
     return self;
 }
 
-- (void)dealloc {
-    self.colorCollection = nil;
-    self.selectedKey = nil;
-    
-    Block_release(_onActionSheetDone);
-    Block_release(_onActionSheetCancel);
-    
-    [super dealloc];
-}
-
 - (UIView *)configuredPickerView {
     if (!self.colorCollection)
         return nil;
     CGRect pickerFrame = CGRectMake(0, 40, self.viewSize.width, 216);
-    UIPickerView *stringPicker = [[[UIPickerView alloc] initWithFrame:pickerFrame] autorelease];
+    UIPickerView *stringPicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     stringPicker.delegate = self;
     stringPicker.dataSource = self;
     stringPicker.showsSelectionIndicator = YES;
@@ -164,7 +154,7 @@
     CGSize viewSize = [pickerView rowSizeForComponent:component];
     CGRect viewRect = CGRectMake(0, 0, viewSize.width, viewSize.height);
     
-    UIView *rowView = [[[UIView alloc] initWithFrame:viewRect] autorelease];
+    UIView *rowView = [[UIView alloc] initWithFrame:viewRect];
     CGFloat labelInset = 5.0f;
     CGRect labelRect = CGRectMake(labelInset, 0.0f, (viewRect.size.width - (2*labelInset)), viewRect.size.height);
     UILabel *colorLabel = [[UILabel alloc] initWithFrame:labelRect];
@@ -177,7 +167,6 @@
     
     [colorLabel setText:[colorObject colorName]];
     [rowView addSubview:colorLabel];
-    [colorLabel release];
     
     UIColor *bkgdColor = [colorObject uiColorDefinition];
     [rowView setBackgroundColor:bkgdColor];
@@ -207,18 +196,16 @@
 
 - (void)setOnActionSheetDone:(ActionColorDoneBlock)onActionSheetDone {
     if (_onActionSheetDone) {
-        Block_release(_onActionSheetDone);
         _onActionSheetDone = nil;
     }
-    _onActionSheetDone = Block_copy(onActionSheetDone);
+    _onActionSheetDone = [onActionSheetDone copy];
 }
 
 - (void)setOnActionSheetCancel:(ActionColorCancelBlock)onActionSheetCancel {
     if (_onActionSheetCancel) {
-        Block_release(_onActionSheetCancel);
         _onActionSheetCancel = nil;
     }
-    _onActionSheetCancel = Block_copy(onActionSheetCancel);
+    _onActionSheetCancel = [onActionSheetCancel copy];
 }
 
 @end
