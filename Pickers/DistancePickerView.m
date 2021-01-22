@@ -56,7 +56,7 @@
         [self addLabel:labeltext forComponent:component forLongestString:longestString];
 
         // change label during fade out/in
-        [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             theLabel.text = labeltext;
             theLabel.alpha = 1.00;
         } completion:^(BOOL finished) {
