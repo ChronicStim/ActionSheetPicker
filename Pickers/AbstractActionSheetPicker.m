@@ -40,7 +40,7 @@ CG_INLINE BOOL isIPhone4()
 }
 
 #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-#define IS_IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPAD [UIDevice userInterfaceIdiom] == UIUserInterfaceIdiomPad
 #define DEVICE_ORIENTATION [UIDevice currentDevice].orientation
 
 // UIInterfaceOrientationMask vs. UIInterfaceOrientation
@@ -322,7 +322,7 @@ CG_INLINE BOOL isIPhone4()
 {
     CGRect frame = CGRectMake(0, 0, self.viewSize.width, 44);
     UIToolbar *pickerToolbar = [[UIToolbar alloc] initWithFrame:frame];
-    pickerToolbar.barStyle = (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) ? UIBarStyleDefault : UIBarStyleBlackTranslucent;
+    pickerToolbar.barStyle = UIBarStyleBlack;
 
     NSMutableArray *barItems = [[NSMutableArray alloc] init];
 
@@ -436,7 +436,7 @@ CG_INLINE BOOL isIPhone4()
 
 - (CGSize)viewSize
 {
-    if ( IS_IPAD )
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
         return CGSizeMake(320, 320);
     }
@@ -461,7 +461,23 @@ CG_INLINE BOOL isIPhone4()
 
 - (BOOL)isViewPortrait
 {
-    return UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+    BOOL isPortrait;
+    if (@available(iOS 13.0, *)) {
+        UIWindow *firstWindow = [[[UIApplication sharedApplication] windows] firstObject];
+        if (firstWindow == nil) { return NO; }
+        
+        UIWindowScene *windowScene = firstWindow.windowScene;
+        if (windowScene == nil){ return NO; }
+        
+        isPortrait = UIInterfaceOrientationIsPortrait(windowScene.interfaceOrientation);
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        isPortrait = (UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation));
+#pragma clang diagnostic pop
+        
+    }
+    return isPortrait;
 }
 
 - (BOOL)isValidOrigin:(id)origin
@@ -486,7 +502,7 @@ CG_INLINE BOOL isIPhone4()
 {
     self.presentFromRect = aView.frame;
 
-    if ( IS_IPAD )
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
         [self configureAndPresentPopoverForView:aView];
     else
         [self configureAndPresentActionSheetForView:aView];

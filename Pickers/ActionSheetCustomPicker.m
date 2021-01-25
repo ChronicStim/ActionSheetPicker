@@ -69,7 +69,6 @@
     // Default to our delegate being the picker's delegate and datasource
     pv.delegate = _delegate;
     pv.dataSource = _delegate;
-    pv.showsSelectionIndicator = YES;
 
     if ( self.initialSelections )
     {

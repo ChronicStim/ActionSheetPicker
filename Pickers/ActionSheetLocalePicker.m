@@ -86,8 +86,6 @@
     pickerView.delegate = self;
     pickerView.dataSource = self;
 
-    pickerView.showsSelectionIndicator = YES;
-
     [self selectCurrentLocale:pickerView];
 
     //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing

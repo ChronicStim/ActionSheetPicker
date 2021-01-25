@@ -91,7 +91,6 @@
     UIPickerView *stringPicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     stringPicker.delegate = self;
     stringPicker.dataSource = self;
-    stringPicker.showsSelectionIndicator = YES;
     
     //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing
     self.pickerView = stringPicker;

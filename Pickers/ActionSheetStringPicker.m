@@ -75,10 +75,8 @@
     stringPicker.dataSource = self;
     [stringPicker selectRow:self.selectedIndex inComponent:0 animated:NO];
     if (self.data.count == 0) {
-        stringPicker.showsSelectionIndicator = NO;
         stringPicker.userInteractionEnabled = NO;
     } else {
-        stringPicker.showsSelectionIndicator = YES;
         stringPicker.userInteractionEnabled = YES;
     }
     
