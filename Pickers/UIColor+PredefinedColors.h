@@ -13,7 +13,7 @@
 #define kCrayonHex @"predefinedCrayonHexString"
 #define kCrayonKey @"predefinedCrayonKeyString"
 #define kCrayonUIColor @"predefinedCrayonUIColor"
-#define kCrayonDefaultKey @"Blue _0066FF"
+#define kCrayonDefaultKey @"Blue_0000FF"
 
 #define CRAYON_SORTINDEX(CRAYON) [[CRAYON componentsSeparatedByString:@"#"] objectAtIndex:0]
 #define CRAYON_NAME(CRAYON)	[[CRAYON componentsSeparatedByString:@"#"] objectAtIndex:1]
